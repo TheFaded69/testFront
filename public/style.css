@@ -1,0 +1,33 @@
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button--primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.button--secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.button--large {
+    font-size: 20px;
+}
+
+.button--small {
+    font-size: 12px;
+}
+
+.button__icon {
+    margin-right: 5px; /* добавляем немного отступа между иконкой и текстом */
+}
+
+.button__text {
+    display: inline-block; /* это обеспечит правильное выравнивание */
+}
