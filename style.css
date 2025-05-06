@@ -42,12 +42,12 @@
 }
 
 .header__subtitle {
-    font-size: var(--p-font-size);
+    font-size: 16px;
     font-weight: 500;
     color: #ffffff;
     text-align: center;
     position: absolute;
-    top: 35%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -62,7 +62,7 @@
 
 /* Navigation styles */
 .nav {
-    position: fixed;
+    position: absolute;
     top: 40px;
     right: 20px;
 }
@@ -81,7 +81,7 @@
 .nav__link {
     color: #ffffff;
     text-decoration: none;
-    font-size: var(--p-font-size);
+    font-size: 16px;
     font-weight: 500;
 }
 
@@ -151,6 +151,7 @@
 
 .service-card {
     width: 30%;
+    text-align: center;
 }
 
 .service-card__icon {
@@ -159,7 +160,8 @@
     border-radius: 50%;
     border: 1px solid #e0e0e0;
     position: relative;
-    margin-bottom: 20px;
+    horiz-align: center;
+    margin: 0 auto 20px
 }
 
 .service-card__icon-bg {
@@ -170,6 +172,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    horiz-align: center;
     transform: translate(-50%, -50%);
 }
 
@@ -179,21 +182,11 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    horiz-align: center;
     transform: translate(-50%, -50%);
     background-size: contain;
     background-repeat: no-repeat;
-}
-
-.service-card__icon-image--1 {
-    background-image: url(https://c.animaapp.com/macfrncftN5Wce/img/group.png);
-}
-
-.service-card__icon-image--2 {
-    background-image: url(https://c.animaapp.com/macfrncftN5Wce/img/group-1.png);
-}
-
-.service-card__icon-image--3 {
-    background-image: url(https://c.animaapp.com/macfrncftN5Wce/img/group-2.png);
+    background-image: url("static/project.png");
 }
 
 .service-card__title {
@@ -225,6 +218,12 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
+}
+
+.about__text-block {
+    display: flex;
+    flex-direction: column; /* Элементы друг под другом */
+    gap: 15px; /* Отступы между h2, p, a */
 }
 
 .about__image {
@@ -272,7 +271,16 @@
 }
 
 .stat-item {
-    text-align: center;
+    display: flex;
+    flex-direction: column; /* Основная ось — вертикаль (лейбл будет снизу) */
+    align-items: flex-start; /* Выравнивание по левому краю */
+    gap: 8px; /* Отступ между блоками */
+}
+
+.stat-item__number-and-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .stat-item__number {
@@ -296,13 +304,19 @@
 /* All services section styles */
 .all-services {
     padding: 100px 0;
-    background-color: var(--accent);
+    background-color: #504DC2;
     color: #ffffff;
 }
 
 .all-services__content {
     max-width: 1110px;
     margin: 0 auto;
+}
+
+.all-services-header {
+    display: flex;          /* Включаем flex-контейнер */
+    align-items: center;    /* Выравниваем по вертикали */
+    gap: 20px;             /* Отступ между кнопкой и заголовком */
 }
 
 .all-services__title {
@@ -427,6 +441,19 @@
     position: relative;
 }
 
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.video__text {
+    position: absolute;
+    color: white;
+    text-align: center;
+}
+
 .video__background {
     width: 100%;
     height: auto;
@@ -436,12 +463,13 @@
     font-size: var(--h-2-font-size);
     font-weight: var(--h-2-font-weight);
     margin-bottom: 20px;
+    color: white;
 }
 
 .video__subtitle {
     font-size: var(--p-h2-font-size);
     font-weight: var(--p-h2-font-weight);
-    color: var(--grey);
+    color: white;
     margin-bottom: 50px;
 }
 
@@ -651,6 +679,7 @@
         padding: 0;
     }
 
+
     .stats {
         flex-wrap: wrap;
     }
@@ -682,7 +711,7 @@
 
     .nav {
         visibility: hidden;
-        position: fixed;
+        position: absolute;
     }
 
     .nav__list {

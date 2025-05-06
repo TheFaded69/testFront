@@ -30,4 +30,5 @@
 
 .button__text {
     display: inline-block; /* это обеспечит правильное выравнивание */
+    background: #4985FF;
 }
