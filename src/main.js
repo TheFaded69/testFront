@@ -1,40 +1,45 @@
-export function setupCounter(element) {
-  let counter = 0;
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.querySelector('.nav__toggle');
+  const menu = document.querySelector('.nav__list');
 
-  const adjustCounterValue = value => {
-    if (value >= 100) return value - 100;
-    if (value <= -100) return value + 100;
-    return value;
-  };
+  toggle.addEventListener('click', function() {
+    menu.classList.toggle('nav__list--active');
+  });
+});
 
+let tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+let firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-
-  const setCounter = value => {
-    counter = adjustCounterValue(value);
-    //TIP WebStorm has lots of inspections to help you catch issues in your project. It also has quick fixes to help you resolve them. Press <shortcut actionId="ShowIntentionActions"/> on <shortcut raw="text"/> and choose <b>Inline variable</b> to clean up the redundant code.
-    element.innerHTML = `${counter}`;
-  };
-
-  document.getElementById('increaseByOne').addEventListener('click', () => setCounter(counter + 1));
-  document.getElementById('decreaseByOne').addEventListener('click', () => setCounter(counter - 1));
-  document.getElementById('increaseByTwo').addEventListener('click', () => setCounter(counter + 2));
-  //TIP In the app running in the browser, you’ll find that clicking <b>-2</b> doesn't work. To fix that, rewrite it using the code from lines 19 - 21 as examples of the logic.
-  document.getElementById('decreaseByTwo')
-
-  //TIP Let’s see how to review and commit your changes. Press <shortcut actionId="GotoAction"/> and look for <b>commit</b>. Try checking the diff for a file – double-click main.js to do that.
-  setCounter(0);
+let player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('youtube-video', {
+    events: {
+      'onReady': onPlayerReady
+    }
+  });
 }
 
-//TIP To find text strings in your project, you can use the <shortcut actionId="FindInPath"/> shortcut. Press it and type in <b>counter</b> – you’ll get all matches in one place.
-setupCounter(document.getElementById('counter-value'));
+function onPlayerReady(event) {
+  // Настройка громкости при загрузке
+  player.setVolume(50);
 
-let stringTest = "123";
-let array = [...stringTest]
-let a = Math.random()
+  // Назначение обработчиков кнопок
+  document.getElementById('play-btn').addEventListener('click', function() {
+    player.playVideo();
+  });
 
-function  test()
-{
-  return 1;
+  document.getElementById('pause-btn').addEventListener('click', function() {
+    player.pauseVideo();
+  });
+
+  document.getElementById('stop-btn').addEventListener('click', function() {
+    player.stopVideo();
+  });
+
+  // Контроль громкости
+  document.getElementById('volume-slider').addEventListener('input', function() {
+    player.setVolume(this.value);
+  });
 }
-
-//TIP There's much more in WebStorm to help you be more productive. Press <shortcut actionId="Shift"/> <shortcut actionId="Shift"/> and search for <b>Learn WebStorm</b> to open our learning hub with more things for you to try.

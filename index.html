@@ -19,6 +19,12 @@
             </a>
             <img class="header__separator" src="https://c.animaapp.com/macfrncftN5Wce/img/line-2.svg" alt="" />
             <nav class="nav">
+                <!-- Кнопка для мобильного меню -->
+                <button class="nav__toggle" aria-label="Открыть меню">
+                    <span class="nav__toggle-icon"></span>
+                </button>
+
+                <!-- Само меню -->
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#" class="nav__link nav__link--active">Главная</a></li>
                     <li class="nav__item"><a href="#projects" class="nav__link">Наши проекты</a></li>
@@ -26,7 +32,6 @@
                     <li class="nav__item"><a href="#news" class="nav__link">Новости</a></li>
                     <li class="nav__item"><a href="#contacts" class="nav__link">Контакты</a></li>
                 </ul>
-                <img class="nav__separator" src="https://c.animaapp.com/macfrncftN5Wce/img/line-2-1.svg" alt="" />
             </nav>
         </div>
     </header>
@@ -233,15 +238,36 @@
                 />
                 <h2 class="video__title">Видео о нашей работе</h2>
                 <p class="video__subtitle">Просто посмотрите, как мы работаем</p>
-                <img
-                        class="video__thumbnail"
-                        src="https://c.animaapp.com/macfrncftN5Wce/img/rectangle-2.png"
-                        alt="Video thumbnail"
-                />
-                <button class="video__button">
-                    <span class="video__button-text">Смотреть видео</span>
-                    <div class="video__play-icon"></div>
-                </button>
+                <iframe width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/j1O0qKwqQEo?si=51qSzBF7_h9oYacz"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+
+                </iframe>
+                <div class="video__custom-video-player">
+                    <!-- Контейнер для видео -->
+                    <div class="video__video-container">
+                        <iframe id="youtube-video" width="560" height="315"
+                                src="https://www.youtube.com/embed/j1O0qKwqQEo?controls=0&modestbranding=1&showinfo=0&rel=0&enablejsapi=1"
+                                frameborder="0"
+                                allowfullscreen></iframe>
+                    </div>
+
+                    <div class="video__video-controls">
+                        <button id="play-btn" class="video__control-btn">▶</button>
+                        <button id="pause-btn" class="video__control-btn">⏸</button>
+                        <button id="stop-btn" class="video__control-btn">⏹</button>
+                        <div class="video__volume-control">
+                            <span>🔈</span>
+                            <input type="range" id="volume-slider" min="0" max="100" value="50">
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <img class="video__separator" src="https://c.animaapp.com/macfrncftN5Wce/img/line.svg" alt="" />
         </section>
@@ -309,4 +335,5 @@
     </footer>
 </div>
 </body>
+<script src="src/main.js"/>
 </html>
