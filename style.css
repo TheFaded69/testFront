@@ -479,11 +479,13 @@
     position: relative;
 }
 
-.video-container {
+.video__content-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
+
 }
 
 .video__text {
@@ -804,12 +806,6 @@
         padding-bottom: 50px;
     }
 
-    .nav {
-        visibility: hidden;
-        position: absolute;
-    }
-
-
     .nav__list {
         position: fixed;
         top: 0;
@@ -831,6 +827,7 @@
 
     .nav__toggle {
         display: block;
+        position:  fixed;
     }
 
     .nav__item {
