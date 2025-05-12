@@ -1,16 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Передовая IT студия</title>
     <link rel="stylesheet" href="globals.css" />
     <link rel="stylesheet" href="styleguide.css" />
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="page">
-    <div class="page__wrapper">
-      <header class="header">
+</head>
+<body class="page">
+<div class="page__wrapper">
+    <header class="header">
         <div class="header__content">
           <p class="header__subtitle">Передовая IT студия</p>
           <h1 class="header__title">
@@ -21,6 +21,9 @@
           </a>
           <img class="header__separator" src="static/work.jpg" alt="" />
           <nav class="nav">
+            <button class="nav__toggle" aria-label="Открыть меню">
+              <span class="nav__toggle-icon"></span>
+            </button>
             <ul class="nav__list">
               <li class="nav__item">
                 <a href="#" class="nav__link nav__link--active">Главная</a>
@@ -265,11 +268,38 @@
                 <h2 class="video__title">Видео о нашей работе</h2>
                 <p class="video__subtitle">Просто посмотрите, как мы работаем</p>
               </div>
+                <iframe width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/j1O0qKwqQEo?si=51qSzBF7_h9oYacz"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+
+                </iframe>
+                <div class="video__custom-video-player">
+                    <!-- Контейнер для видео -->
+                    <div class="video__video-container">
+                        <iframe id="youtube-video" width="560" height="315"
+                                src="https://www.youtube.com/embed/j1O0qKwqQEo?controls=0&modestbranding=1&showinfo=0&rel=0&enablejsapi=1"
+                                frameborder="0"
+                                allowfullscreen></iframe>
+                    </div>
+
+                    <div class="video__video-controls">
+                        <button id="play-btn" class="video__control-btn">▶</button>
+                        <button id="pause-btn" class="video__control-btn">⏸</button>
+                        <button id="stop-btn" class="video__control-btn">⏹</button>
+                        <div class="video__volume-control">
+                            <span>🔈</span>
+                            <input type="range" id="volume-slider" min="0" max="100" value="50">
+                        </div>
+                    </div>
+                </div>
+
             </div>
-
-
-          </div>
-        </section>
+           </section>
         <section class="subscribe">
           <h2 class="subscribe__title">Подпишитесь на нашу рассылку</h2>
           <p class="subscribe__description">
@@ -379,7 +409,8 @@
           />
           <p class="footer__copyright">(с) 2019. Все права защищены.</p>
         </div>
-      </footer>
-    </div>
-  </body>
+    </footer>
+</div>
+</body>
+<script src="src/main.js"/>
 </html>
